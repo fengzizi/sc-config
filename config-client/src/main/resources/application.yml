@@ -9,10 +9,26 @@ spring:
       label: master
       profile: dev #spring.cloud.config.profile dev开发环境配置文件 test测试环境 pro正式环境
       #uri: http://localhost:8888/
+    bus:
+      enabled: true #标志表示总线已启用 true
+      refresh:
+        enabled: true #关闭刷新事件的标志 true
+      trace:
+        enabled: true #打开acks跟踪的标志 false
 
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 server:
   port: 8881
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 
 eureka:
   client:
